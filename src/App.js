@@ -14,6 +14,11 @@ import corndog from "./img/Corn-dog.png"
         }
         this.inputClick = this.inputClick.bind(this)
     }
+    componentDidUpdate(prev) {
+        if (this.state.helpText !== 'Help') {
+            console.log("Some");
+        }
+    }
     
     render() {
     return ( <div className='name'>
@@ -29,7 +34,7 @@ import corndog from "./img/Corn-dog.png"
     />
     <p>{this.state.helpText === 'Help text!' ? 'Yes' : 'No'}</p>
     <Image image={corndog} />
-    <img src={corndog} />
+    <img src={corndog} alt='corn-dog' />
   </div>)
   }
   inputClick() {
