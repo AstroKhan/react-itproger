@@ -6,21 +6,36 @@ import corndog from "./img/Corn-dog.png"
 
   
   class App extends React.Component {
-    helpText = 'Help text';
+    constructor(props) {
+        super(props)
+        this.state = {
+            helpText: 'Help text',
+            userData: ""
+        }
+        this.inputClick = this.inputClick.bind(this)
+    }
+    
     render() {
     return ( <div className='name'>
     <Header title='Хедер' />
     <Header title='Хедер 2' />
     <Header title='Хедер 3' />
-    <h1>{this.helpText}</h1>
-    <input placeholder={this.helpText}
-    onClick={this.inputClick} onMouseEnter={this.mouseOver} />
-    <p>{this.helpText === 'Help text!' ? 'Yes' : 'No'}</p>
+    <h1>{this.state.helpText}</h1>
+    <h2>{this.state.userData}</h2>
+    <input placeholder={this.state.helpText}
+    onClick={this.inputClick} 
+    onMouseEnter={this.mouseOver} 
+    onChange={(event) => this.setState({userData: event.target.value})}
+    />
+    <p>{this.state.helpText === 'Help text!' ? 'Yes' : 'No'}</p>
     <Image image={corndog} />
     <img src={corndog} />
   </div>)
   }
-  inputClick() {console.log('Clicked')};
+  inputClick() {
+    this.setState({ helpText: 'Changed'} )
+    console.log('Clicked');
+};
   mouseOver() {console.log('Mouse over')};
   }
 
