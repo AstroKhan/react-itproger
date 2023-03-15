@@ -8,7 +8,8 @@ export class Users extends Component {
     if (this.props.users.length > 0)
     return (
       <div>
-        {this.props.users.map((el) => (<User  key={el.id} user={el} />))}
+        {this.props.users.map((el) => (
+            <User onEdit={this.props.onEdit} onDelete={this.props.onDelete} key={el.id} user={el} />))}
       </div>
     )
     else 
