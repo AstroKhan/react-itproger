@@ -20,8 +20,9 @@ export class User extends Component {
                 editForm: !this.state.editForm
             })
         }} className='edit-icon' />
-        <h3>{this.user.firstname} {this.user.lastname}</h3>
-        <p>{this.user.bio}</p>
+        <h3>{this.user.first_name} {this.user.last_name}</h3>
+        <img src={this.user.avatar} />
+        <p>{this.user.email}</p>
         <b>{this.user.isHappy ? 'Счаслив' : 'Не очень'}</b>
         {this.state.editForm && <AddUser user={this.user} onAdd={this.props.onEdit} />}
     </div>
